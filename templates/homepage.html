@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+{% block body %}
+	<h2>{{message}}</h2>
+	<h1>Dream Cricket!!!!</h1>
+	<table>
+		<tr><th><h2>Match</h2></th><th><h2>Status</h2></th></tr>
+		<br>
+		{% for i in matches %}
+			{% if i.mchstate != "complete" %}
+				<tr>
+					<th><a href="match/{{ i.id }}"><h3>{{i.srs}}: {{i.mchdesc}} {{i.mnum}}</h3></a></th>
+					<th><h3 style="text-transform: capitalize;">{{i.mchstate}}</h3></th>
+				</tr>
+			{% endif %}
+		{% endfor %}
+	</table>
+{% endblock %}
